@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .contactus{
+       width: 300px;
+       height: fit-content;
+       margin-left: 620px;
+       margin-top: 150px;
+       background-color: #f0f0f0;
+       border: 5px solid transparent;
+       border-radius: 10px;
+       animation: flash 1s infinite; /* Animation applied to the border */
+    }
+    @keyframes flash {
+            0% {
+                border-color: transparent;
+                box-shadow: 0 0 10px transparent;
+            }
+            50% {
+                border-color: cadetblue; /* Flash color */
+                box-shadow: 0 0 20px cadetblue; /* Glow effect */
+            }
+            100% {
+                border-color: transparent;
+                box-shadow: 0 0 10px transparent;
+            }
+        }
+
+        body{
+            background-color: rgb(208, 235, 236);
+        }
+
+    input{
+        height: 30px;
+        width: 210px;
+        margin-bottom: 20px;
+        margin-left: 40px;
+    }
+    label{
+        margin-bottom: 20px;
+        margin-left: 40px;
+        font-size: 20px;
+    }
+    button{
+        margin-left: 120px;
+        height: 30px;
+        margin-bottom: 30px;
+        background-color: rgb(134, 134, 233);
+        font-size: 15px;
+    }
+    button:hover{
+        background-color: rgb(80, 80, 242);
+        font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a class="active" href="contact.html">Contact us</a></li>
+    </ul>
+    <h1 style="background-color: cadetblue;text-align: center;">Welcome To Contact Us page Sai krishnan</h1>
+
+    <div class = "contactus">
+        <h2 style="text-align: center;">LOGIN</h2>
+        <form>
+            <label>Username</label><br>
+            <input type="text" value="" placeholder="Enter your Username..."><br>
+            <label>Password</label><br>
+            <input type="password" value="" placeholder="Enter your Password..."><br>
+
+            <button value = "LOGIN" >LOGIN </button>
+        </form>
+        </form>
+    </div>
+
+    
+</body>
+</html>
