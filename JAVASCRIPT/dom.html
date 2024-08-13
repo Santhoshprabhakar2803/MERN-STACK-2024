@@ -18,13 +18,14 @@
     <button id="red_id"; style="background-color: red;">RED</button>
     <button id="blue_id"; style="background-color: blue;">BLUE</button>
     <script>
-        
+        var classH1 = document.querySelector("#h1_id").classList;
         chgred=()=>{
-            document.querySelector("#h1_id").classList.add('red');
+            classH1.add('red')
+            classH1.remove('blue')
         }
         chgblue=()=>{
-            document.querySelector("#h1_id").classList.add('blue');
-        }
+            classH1.add('blue')
+            classH1.remove('red')        }
         document.querySelector("#red_id").addEventListener('click',chgred);
         document.querySelector("#blue_id").addEventListener('click',chgblue);
     </script>
