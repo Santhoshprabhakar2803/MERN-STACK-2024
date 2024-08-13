@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id ="h1_id">SHIVADEV</h1>
+    <button id="red_id"; style="background-color: red;">RED</button>
+    <button id="blue_id"; style="background-color: blue;">BLUE</button>
+    <script>
+        
+        chgred=()=>{
+            document.querySelector("#h1_id").classList.add('red');
+        }
+        chgblue=()=>{
+            document.querySelector("#h1_id").classList.add('blue');
+        }
+        document.querySelector("#red_id").addEventListener('click',chgred);
+        document.querySelector("#blue_id").addEventListener('click',chgblue);
+    </script>
+</body>
+</html>

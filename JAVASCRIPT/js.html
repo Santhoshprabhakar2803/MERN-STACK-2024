@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT</title>
+</head>
+<body>
+    <label>Enter Your Name :</label><br>
+    <input type="text" id="input_id" placeholder="Enter....">
+    <h1 id="h1_id">Hello</h1>
+    <h2 id="h2_id">Welcome Shivadev</h2>
+    <h1 id="h3_id"></h1>
+    <h4 id="hi"></h4>
+    <button onclick="fun1()">SUBMIT</button>
+</body>
+<script>
+    function fun1() {
+        let inputElement = document.getElementById("input_id");
+        let val = inputElement.value;
+
+        if (val === "") {
+            fun2();
+        } else {
+            document.getElementById("h1_id").innerHTML = "This is javascript";
+            document.getElementById("h2_id").innerHTML = "This is javascript2";
+            document.getElementById("h3_id").innerHTML = val;
+        }
+    }
+
+    function fun2() {
+        document.getElementById("hi").innerHTML = "Input box is empty";
+    }
+</script>
+</html>
