@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            border-color: red;
+            border-width: 5px;
+            animation: fls 1s infinite;
+        }
+        .blue{
+            border-color: blue;
+            border-width: 5px;
+            animation: flss 1s infinite;
+        }
+        @keyframes fls {
+            0% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: rgb(197, 120, 20); /* Flash color */
+            }
+            100% {
+                border-color: transparent;
+            }
+        }
+        @keyframes flss {
+            0% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: rgb(34, 5, 80); /* Flash color */
+            }
+            100% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input id="in" type="text" placeholder="Enter Your Name..">
+    <button id = "b1">CHECK</button>
+    <script>
+        document.getElementById('b1').onclick = function(){
+            var a = document.getElementById("in").value;
+            if(a == ""){
+                chred();
+            }else{
+                chblue();
+            }
+        };
+        chred=()=>{
+            document.getElementById("in").classList.add("red");
+            document.getElementById("in").classList.remove("blue");
+            }
+        chblue=()=>{
+            document.getElementById("in").classList.add("blue");
+            document.getElementById("in").classList.remove("red");
+            }
+        
+    </script>
+</body>
+</html>
