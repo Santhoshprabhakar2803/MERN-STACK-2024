@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Table Eatery</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            overflow: hidden; /* Prevents scrolling */
+        }
+
+        /* Full-screen background video */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send the video to the background */
+            object-fit: contain; /* Ensure the video fits within the screen */
+        }
+
+        .head {
+            text-align: center;
+            color: #0b3a58;
+            font-family: 'Dancing Script', cursive;
+            margin-top: 20px;
+            z-index: 1; /* Ensure the content is above the video */
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            z-index: 1;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu li a {
+            color: #1c8fd7;
+            text-decoration: none;
+            background-color: #aad4ee;
+            border-radius: 10px;
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #003352;
+            color: #c1ddee;
+            border-radius: 5px;
+        }
+
+        marquee {
+            background-color: rgba(60, 148, 203, 0.8); /* Slight transparency */
+            color: #c1ddee;
+            padding: 10px 0;
+            font-size: 18px;
+            margin: 20px 0;
+            width: 100%;
+            transition: background-color 0.3s, color 0.3s;
+            z-index: 1;
+        }
+        
+        marquee:hover {
+            background-color: rgba(0, 51, 82, 0.8); /* Slight transparency */
+            color: #c1ddee;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            background-color: rgba(193, 222, 238, 0.8); /* Slight transparency */
+            color: #003352;
+            border-top: 2px solid #003352;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video -->
+    <video id="bg-video" autoplay muted loop>
+        <source src="C:\Users\santh\Downloads\3297798-uhd_4096_2160_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <h1 class="head">Tasty Table Eatery</h1>
+        <h4 class="head">Dine-in Restaurant</h4>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="task1.html">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </nav>
+
+    <marquee behavior="scroll" direction="left" scrollamount="6" loop="infinite">
+        "Where every Bite Tells a Story" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        "Where every Bite Tells a Story" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        "Where every Bite Tells a Story"
+    </marquee>
+
+    <footer>
+        <p>&copy; 2024 Tasty Table Eatery. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

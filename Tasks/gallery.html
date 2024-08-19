@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Table Eatery</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #3c94cb, #003352);
+            animation: gradientAnimation 10s ease infinite;
+            background-size: 200% 200%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .head {
+            text-align: center;
+            color: #c1ddee;
+            font-family: 'Dancing Script', cursive;
+            margin-top: 20px;
+        }
+        
+        .menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu li a {
+            color: #c1ddee;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #003352;
+            color: #c1ddee;
+            border-radius: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            width: 250px;
+            height: 250px;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #003352;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        marquee {
+            background-color: #3c94cb;
+            color: #c1ddee;
+            padding: 10px 0;
+            font-size: 18px;
+            margin: 20px 0;
+            width: 100%;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        marquee:hover {
+            background-color: #003352;
+            color: #c1ddee;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            background-color: #c1ddee;
+            color: #003352;
+            border-top: 2px solid #003352;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="head">Tasty Table Eatery</h1>
+        <h4 class="head">Dine-in Restaurant</h4>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="task1.html">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </nav>
+
+    <marquee behavior="scroll" direction="left" scrollamount="6" loop="infinite">
+        "Where every Bite Tells a Story" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        "Where every Bite Tells a Story" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        "Where every Bite Tells a Story"
+    </marquee>
+
+    <main class="grid-container">
+        <div class="grid-item">
+            <img src="image1.jpg" alt="Image 1">
+        </div>
+        <div class="grid-item">
+            <img src="image2.jpg" alt="Image 2">
+        </div>
+        <div class="grid-item">
+            <img src="image3.jpg" alt="Image 3">
+        </div>
+        <div class="grid-item">
+            <img src="image4.jpg" alt="Image 4">
+        </div>
+        <div class="grid-item">
+            <img src="image5.jpg" alt="Image 5">
+        </div>
+        <div class="grid-item">
+            <img src="image6.jpg" alt="Image 6">
+        </div>
+        <div class="grid-item">
+            <img src="image7.jpg" alt="Image 7">
+        </div>
+        <div class="grid-item">
+            <img src="image8.jpg" alt="Image 8">
+        </div>
+        <div class="grid-item">
+            <img src="image9.jpg" alt="Image 9">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Tasty Table Eatery. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
