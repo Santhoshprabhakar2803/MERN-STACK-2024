@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Correct API endpoint that returns JSON data
+        fetch("https://byabbe.se/on-this-day/#/default/get__month___day__events_json")
+        .then(res => {
+            if(res.ok) {
+                console.log('Success');
+                return res.json(); // Proceed to convert the response to JSON
+            } else {
+                console.log('Failed');
+            }
+        })
+        .then(data => {
+            console.log(data); // Handle and display the JSON data
+        })
+        .catch(error => {
+            console.error('Error:', error); // Catch any network or parsing errors
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            'name':'sai',
+            'mobile' : 9150867165,
+            'address' : 'Aynavaram',
+            'email' : 'spsaikrishnan@gmail.com'
+        }
+        console.log(person['name']);
+        console.log(person['email'])
+
+        let personslist = [{
+            'name':'sai',
+            'mobile' : 9150867165,
+            'address' : 'Aynavaram',
+            'email' : 'spsaikrishnan@gmail.com'
+        },
+        {
+            'name':'santhosh',
+            'mobile' : 8056082188,
+            'address' : 'vadapalani',
+            'email' : 'santhosh@gmail.com'
+        },
+        {
+            'name':'abhishek',
+            'mobile' : 9840967594,
+            'address' : 'Arumbakkam',
+            'email' : 'Abhishek@gmail.com'
+        }
+    ]
+
+    console.log(personslist[2]['address']);
+
+    for(i in personslist){
+        console.log(personslist[i])
+    }
+
+    async function getuserlist(){
+        let res = await fetch('http://reqres.in/api/users',{"method":"GET"});
+        let json = await res.json();
+        for(let index in json['data']){
+            console.log(json['data'][index]['id']);
+            console.log(json['data'][index]['first_name'])
+            console.log(json['data'][index]['email']);
+
+    }
+    }
+    getuserlist();
+
+
+    </script>
+</body>
+</html>
