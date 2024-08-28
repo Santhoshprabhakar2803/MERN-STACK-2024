@@ -1,7 +1,6 @@
 import './App.css';
 import {useState} from 'react';
-
-
+import Api from './api';
 function App() {
   const[name,setName]=useState('')
   const[pass,setPassword]=useState('')
@@ -33,6 +32,7 @@ function App() {
       <input type='text' placeholder='Enter Username' onChange={(n) => setName(n.target.value)}/><br></br>
       <input type='password' placeholder='Enter Your password'onChange={(p) => setPassword(p.target.value)}/><br></br>
       <br></br>
+      <Api/>
       <button onClick={()=>validate()}>LOGIN</button>
     </div>
   );
