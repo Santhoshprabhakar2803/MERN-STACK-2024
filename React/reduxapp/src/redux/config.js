@@ -1,20 +1,22 @@
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore} from '@reduxjs/toolkit'
+//import { Provider } from 'react-redux'
 
 const counterLogic = (state = 0, action) => {
-    switch(action.type) {
+    switch(action.type){
         case "add":
-            return state + 1;
+            return state+1;
+        break;
         case "sub":
-            return state - 1;
+            return state-1;
+        break;
         default:
             return state;
     }
-    return state;
+    
 }
 
 export const myStore = configureStore({
-    reducer: {
-        "counter": counterLogic
-        // you can add more code if you see fit
+    reducer:{
+        "counter":counterLogic, //here counter is the store name
     }
-});
+})
