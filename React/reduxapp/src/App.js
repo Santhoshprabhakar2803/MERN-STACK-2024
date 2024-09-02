@@ -14,7 +14,6 @@ let routerPaths = createBrowserRouter([
   { path: "/home", element: <Home /> },
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
-  
 ]);
 
 function App() {
