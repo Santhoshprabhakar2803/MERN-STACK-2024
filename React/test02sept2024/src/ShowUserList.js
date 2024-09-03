@@ -4,10 +4,9 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    // Fetch user data from an API or database
     const fetchData = async () => {
       try {
-        const response = await fetch('https://api.example.com/users'); // Replace with your API endpoint
+        const response = await fetch('https://api.example.com/users');
         const data = await response.json();
         setUsers(data);
       } catch (error) {
