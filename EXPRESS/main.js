@@ -1,8 +1,9 @@
+// postman
 var express = require("express");
 var app = express();
 // app.use(express.json()); [use this if ur using body instead of query]
 app.get("/myname",(req,res)=>{
-    res.json({"msg":"yourname"});
+    res.json({"msg":"santhosh"});
 });
 
 app.post("/myname",(req,res)=>{
@@ -27,6 +28,7 @@ app.post("/login",(req,res)=>{
 });
 
 //method 2
+
 app.post("/loginn",(req,res)=>{
     let {email,password,name,address} = req.query;
     
