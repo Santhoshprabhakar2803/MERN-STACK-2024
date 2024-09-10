@@ -64,6 +64,35 @@ app.post("/logindata",async(req,res)=>{
     
 })
 
+app.delete("/deleteuserbyname",async(req,res)=>{
+    let {name} = req.query;
+    await client.connect();
+    let db = client.db(ex);
+    await db.collection("employee").deleteOne({"name":name})
+    res.json({"msg":"user deleted"})
+})
+
+app.put("/updateuserbyname",async(req,res)=>{
+    let {name,password} = req.query;
+    await client.connect();
+    let db = client.db(ex);
+    await db.collection("employee").updateOne({"name":name},{
+        $set: {"password":password}
+        });
+    res.json({"message":"Data updated successfully"})
+});
+
+// Using post method
+app.post('/update',async(req,res)=>{
+    let{name,password} = req.body;
+    await client.connect();
+    let db = client.db(ex);
+    await db.collection("employee").updateOne({"name":name},{
+        $set:{"password":password}
+    });
+    res.json({"message":"Password updated successfully"});
+})
+
 // Start the Express server 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
