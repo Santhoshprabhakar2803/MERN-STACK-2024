@@ -1,5 +1,5 @@
 var express = require('express');
-const { MongoClient } = require('mongodb'); 
+const { MongoClient, ObjectId } = require('mongodb'); 
 
 var app = express();
 app.use(express.json());
@@ -91,6 +91,16 @@ app.post('/update',async(req,res)=>{
         $set:{"password":password}
     });
     res.json({"message":"Password updated successfully"});
+})
+
+app.get('/updateusingget',async(req,res)=>{
+    let{id} = req.query;
+    await client.connect();
+    let db = client.db(ex);
+    // we should import Objectid [const { MongoClient, ObjectId } = require('mongodb');] 
+    // This code getting data from mongodb using the objectid() new is a keyword
+    let data = await db.collection("employee").find({"_id":new ObjectId(id)}).toArray();
+    res.json(data)
 })
 
 // Start the Express server 
