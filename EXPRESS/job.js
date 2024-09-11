@@ -3,6 +3,11 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 var app = express();
 app.use(express.json());
+
+// enable to run on diffrent portal
+var cors = require("cors")
+app.use(cors());
+
 // main database
 const ex = "job_portal"
 // url of the database
@@ -105,10 +110,13 @@ app.get('/updatejobusingget',async(req,res)=>{
 })
 
 // Start the Express server 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.listen(8080, () => {
+    console.log("Server is running on port 8080");
 });
 
 
 // req.body => sending the details to server (secure) (json format)
 // path variable => contain the data in the url so it's not secure (url format)
+// npm i cors -> helps to run both react and express in diffrent portal
+// var cors = require("cors")
+// app.use(cors());
