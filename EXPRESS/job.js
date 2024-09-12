@@ -71,10 +71,10 @@ app.post("/joblogin",async(req,res)=>{
 })
 
 app.delete("/deletejobbyname",async(req,res)=>{
-    let {name} = req.query;
+    let {id} = req.query;
     await client.connect();
     let db = client.db(ex);
-    await db.collection("job1").deleteOne({"name":name})
+    await db.collection("job1").deleteOne({"_id":new ObjectId(id)})
     res.json({"msg":"user deleted"})
 })
 
@@ -90,11 +90,11 @@ app.put("/updatejobbyname",async(req,res)=>{
 
 // Using post method
 app.post('/updatejob',async(req,res)=>{
-    let{name,password} = req.body;
+    let{name,email,id} = req.body;
     await client.connect();
     let db = client.db(ex);
-    await db.collection("job1").updateOne({"name":name},{
-        $set:{"password":password}
+    await db.collection("job1").updateOne({"_id":new ObjectId(id)},{
+        $set:{"email":email}
     });
     res.json({"message":"Password updated successfully"});
 })
