@@ -1,5 +1,6 @@
 var express = require('express');
 const { MongoClient, ObjectId } = require('mongodb'); 
+var jwt = require('jsonwebtoken');// For using job token @jwt nodejs
 
 var app = express();
 app.use(express.json());
@@ -60,8 +61,9 @@ app.post("/joblogin",async(req,res)=>{
     if(list.length > 0){
         //res.json({"msg":"You are correct"})
         //res.status(200).json(list)
+        var token_n = jwt.sign({ "name": list[0]['name'] }, 'SECRET');
         res.status(200).json({
-            "msg": "Login successful,correct details",
+            "msg": "Login successful,correct details","token":token_n,
             "data": list
         });
     }else{
