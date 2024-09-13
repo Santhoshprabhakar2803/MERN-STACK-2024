@@ -9,6 +9,20 @@ app.use(express.json());
 var cors = require("cors")
 app.use(cors());
 
+// middle ware for token verification
+// unauthorized person can't access the data so  we use middleware(token)
+// Use next in  the middleware to pass control to the next middleware function in the stack
+app.use('/api/',(req,res,next)=>{
+    // reading the header from the header
+    let {token} = req.headers;
+    if(token == "" || token == undefined){
+        res.json({"msg":"please send the token"})
+    }else{
+        jwt.verify(token, 'SECRET');
+        next();
+    }
+});
+
 // main database
 const ex = "job_portal"
 // url of the database
@@ -31,7 +45,7 @@ app.post("/createjob",async(req,res)=>{
 })
 
 // for listing all Job details from mongoDB(Database)
-app.get("/getjob",async(req,res)=>{
+app.get("/api/getjob",async(req,res)=>{
     await client.connect();
     let db = client.db(ex);
     let list = await db.collection('job1').find({}).toArray();
@@ -40,7 +54,7 @@ app.get("/getjob",async(req,res)=>{
 
 // for getting specific employee details from mongoDB(Database)
 // http://localhost:3000/listjobbyname/santhosh
-app.get("/listjobbyname/:name",async(req,res)=>{   // "/listempbyname/:name" => path variable
+app.get("/api/listjobbyname/:name",async(req,res)=>{   // "/listempbyname/:name" => path variable
     await client.connect();
     let {name} = req.params; // postman url
     let db = client.db(ex);
@@ -68,11 +82,10 @@ app.post("/joblogin",async(req,res)=>{
         });
     }else{
         res.json({"msg":"Email or password is incorrect"})
-    }
-    
+    } 
 })
 
-app.delete("/deletejobbyname",async(req,res)=>{
+app.delete("/api/deletejobbyname",async(req,res)=>{
     let {id} = req.query;
     await client.connect();
     let db = client.db(ex);
@@ -80,7 +93,7 @@ app.delete("/deletejobbyname",async(req,res)=>{
     res.json({"msg":"user deleted"})
 })
 
-app.put("/updatejobbyname",async(req,res)=>{
+app.put("/api/updatejobbyname",async(req,res)=>{
     let {name,password} = req.query;
     await client.connect();
     let db = client.db(ex);
@@ -91,7 +104,7 @@ app.put("/updatejobbyname",async(req,res)=>{
 });
 
 // Using post method
-app.post('/updatejob',async(req,res)=>{
+app.post('/api/updatejob',async(req,res)=>{
     let{name,email,id} = req.body;
     await client.connect();
     let db = client.db(ex);
@@ -101,7 +114,7 @@ app.post('/updatejob',async(req,res)=>{
     res.json({"message":"Password updated successfully"});
 })
 
-app.get('/updatejobusingget',async(req,res)=>{
+app.get('/api/updatejobusingget',async(req,res)=>{
     let{id} = req.query;
     await client.connect();
     let db = client.db(ex);
