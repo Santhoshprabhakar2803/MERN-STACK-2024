@@ -1,13 +1,21 @@
 var express = require('express');
 const { MongoClient, ObjectId } = require('mongodb'); 
 var jwt = require('jsonwebtoken');// For using job token @jwt nodejs
+// npm i express-fileupload (for file upload concept)
+// File upload can be done only with POST method
 
 var app = express();
 app.use(express.json());
 
 // enable to run on diffrent portal
-var cors = require("cors")
+var cors = require("cors");
+const fileUpload = require('express-fileupload');
 app.use(cors());
+
+// Limit for user for uploading file
+app.use(fileUpload({
+    limits : {fileSize: 50 * 1024 * 1024},
+}));
 
 // middle ware for token verification
 // unauthorized person can't access the data so  we use middleware(token)
@@ -93,6 +101,8 @@ app.delete("/api/deletejobbyname",async(req,res)=>{
     res.json({"msg":"user deleted"})
 })
 
+/* This code snippet is handling a PUT request to update the password of a job in the MongoDB database.
+Here's a breakdown of what it does: */
 app.put("/api/updatejobbyname",async(req,res)=>{
     let {name,password} = req.query;
     await client.connect();
@@ -100,7 +110,7 @@ app.put("/api/updatejobbyname",async(req,res)=>{
     await db.collection("job1").updateOne({"name":name},{
         $set: {"password":password}
         });
-    res.json({"message":"Data updated successfully"})
+    res.status(200).json({"message":"Data updated successfully"})
 });
 
 // Using post method
@@ -123,6 +133,29 @@ app.get('/api/updatejobusingget',async(req,res)=>{
     let data = await db.collection("job1").find({"_id":new ObjectId(id)}).toArray();
     res.json(data)
 })
+
+// Simple file uplaod code
+//app.post('/upload',function(req,res){
+  //  console.log(req.files.foo) // foo -> is a file name
+//});
+
+// File upload concept
+// Create one folder called uploads in express
+// Go to post man -> Enter url -> body -> form-data
+// enter key(img) , choose option as file instead of text and choose file in file column and hit the url
+app.post('/upload',function(req,res){
+    let file = req.files.img;
+    let uploadpath = __dirname + '/uploads/' + file.name;
+
+    file.mv(uploadpath,function(err){
+        if(err){
+            return res.status(500).send(err)
+        }else{
+            res.send("File uploaded successfully")
+        }
+    })
+}) 
+
 
 // Start the Express server 
 app.listen(8080, () => {
