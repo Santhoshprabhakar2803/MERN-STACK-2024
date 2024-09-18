@@ -144,8 +144,9 @@ app.get('/api/updatejobusingget',async(req,res)=>{
 // Go to post man -> Enter url -> body -> form-data
 // enter key(img) , choose option as file instead of text and choose file in file column and hit the url
 app.post('/upload',function(req,res){
-    let file = req.files.img;
-    let uploadpath = __dirname + '/uploads/' + file.name;
+    let file = req.files.img; // img -> key postman
+    let uploadpath = __dirname + '/uploads/' + file.name; // __dirname ->  current directory +
+
 
     file.mv(uploadpath,function(err){
         if(err){
